@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Songs" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Songs" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://localhost:44399/Services/QueryService.svc?xsd=xsd0" namespace="http://vocaloid.eu/schemas/VocaDb" />
+  <xs:simpleType name="SongMatchProperty">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PV" />
+      <xs:enumeration value="Title" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SongMatchProperty" nillable="true" type="tns:SongMatchProperty" />
+  <xs:complexType name="ArrayOfSongWithAlbumAndPVsContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SongWithAlbumAndPVsContract" nillable="true" type="tns:SongWithAlbumAndPVsContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSongWithAlbumAndPVsContract" nillable="true" type="tns:ArrayOfSongWithAlbumAndPVsContract" />
+  <xs:complexType name="SongWithAlbumAndPVsContract">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://vocaloid.eu/schemas/VocaDb" base="q1:SongWithAlbumContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PVs" nillable="true" type="q1:ArrayOfPVContract" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SongWithAlbumAndPVsContract" nillable="true" type="tns:SongWithAlbumAndPVsContract" />
+</xs:schema>

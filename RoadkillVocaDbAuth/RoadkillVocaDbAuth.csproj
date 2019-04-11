@@ -71,63 +71,69 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
-    <None Include="Service References\VocaDbService\QueryService.wsdl" />
-    <None Include="Service References\VocaDbService\QueryService.xsd">
+    <None Include="Service References\VocaDbService\QueryService15.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\VocaDbService\QueryService1.wsdl" />
-    <None Include="Service References\VocaDbService\QueryService1.xsd">
+    <None Include="Service References\VocaDbService\QueryService151.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\VocaDbService\QueryService10.xsd">
+    <None Include="Service References\VocaDbService\QueryService1510.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\VocaDbService\QueryService11.xsd">
+    <None Include="Service References\VocaDbService\QueryService1511.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\VocaDbService\QueryService12.xsd">
+    <None Include="Service References\VocaDbService\QueryService1512.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\VocaDbService\QueryService13.xsd">
+    <None Include="Service References\VocaDbService\QueryService1513.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\VocaDbService\QueryService14.xsd">
+    <None Include="Service References\VocaDbService\QueryService1514.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\VocaDbService\QueryService2.xsd">
+    <None Include="Service References\VocaDbService\QueryService1515.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\VocaDbService\QueryService3.xsd">
+    <None Include="Service References\VocaDbService\QueryService1516.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\VocaDbService\QueryService4.xsd">
+    <None Include="Service References\VocaDbService\QueryService1517.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\VocaDbService\QueryService5.xsd">
+    <None Include="Service References\VocaDbService\QueryService1518.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\VocaDbService\QueryService6.xsd">
+    <None Include="Service References\VocaDbService\QueryService152.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\VocaDbService\QueryService7.xsd">
+    <None Include="Service References\VocaDbService\QueryService153.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\VocaDbService\QueryService8.xsd">
+    <None Include="Service References\VocaDbService\QueryService154.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\VocaDbService\QueryService9.xsd">
+    <None Include="Service References\VocaDbService\QueryService155.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\VocaDbService\QueryService156.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VocaDbService\QueryService157.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VocaDbService\QueryService158.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VocaDbService\QueryService159.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VocaDbService\QueryService2.wsdl" />
+    <None Include="Service References\VocaDbService\QueryService21.wsdl" />
     <None Include="Service References\VocaDbService\VocaDb.RoadkillAuth.VocaDbService.AlbumContract.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\VocaDbService\VocaDb.RoadkillAuth.VocaDbService.AlbumDetailsContract.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\VocaDbService\VocaDb.RoadkillAuth.VocaDbService.AlbumWithAdditionalNamesContract.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\VocaDbService\VocaDb.RoadkillAuth.VocaDbService.AllEntriesSearchResult.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\VocaDbService\VocaDb.RoadkillAuth.VocaDbService.ArtistDetailsContract.datasource">
@@ -139,13 +145,16 @@
     <None Include="Service References\VocaDbService\VocaDb.RoadkillAuth.VocaDbService.LyricsForSongContract.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\VocaDbService\VocaDb.RoadkillAuth.VocaDbService.NewSongCheckResultContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\VocaDbService\VocaDb.RoadkillAuth.VocaDbService.PartialFindResultOfAlbumContractZKwwigZK.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\VocaDbService\VocaDb.RoadkillAuth.VocaDbService.PartialFindResultOfAlbumWithAdditionalNamesContractZKwwigZK.datasource">
+    <None Include="Service References\VocaDbService\VocaDb.RoadkillAuth.VocaDbService.PartialFindResultOfArtistContractZKwwigZK.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\VocaDbService\VocaDb.RoadkillAuth.VocaDbService.PartialFindResultOfArtistWithAdditionalNamesContractZKwwigZK.datasource">
+    <None Include="Service References\VocaDbService\VocaDb.RoadkillAuth.VocaDbService.PartialFindResultOfEntryForApiContractZKwwigZK.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\VocaDbService\VocaDb.RoadkillAuth.VocaDbService.PartialFindResultOfSongWithAlbumAndPVsContractoTF1Br6_P.datasource">
@@ -157,7 +166,7 @@
     <None Include="Service References\VocaDbService\VocaDb.RoadkillAuth.VocaDbService.SongListContract.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\VocaDbService\VocaDb.RoadkillAuth.VocaDbService.SongWithAdditionalNamesContract.datasource">
+    <None Include="Service References\VocaDbService\VocaDb.RoadkillAuth.VocaDbService.SongWithAlbumContract.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\VocaDbService\VocaDb.RoadkillAuth.VocaDbService.TagContract.datasource">
@@ -171,9 +180,6 @@
     <WCFMetadataStorage Include="Service References\VocaDbService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\VocaDbService\QueryService.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\VocaDbService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -184,6 +190,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VocaDbService\QueryService1.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

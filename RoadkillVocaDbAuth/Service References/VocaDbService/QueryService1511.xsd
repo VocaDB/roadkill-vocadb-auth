@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Songs" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Songs" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="https://localhost:44399/Services/QueryService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:simpleType name="SongListFeaturedCategory">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Nothing" />
+      <xs:enumeration value="Concerts" />
+      <xs:enumeration value="VocaloidRanking" />
+      <xs:enumeration value="Pools" />
+      <xs:enumeration value="Other" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SongListFeaturedCategory" nillable="true" type="tns:SongListFeaturedCategory" />
   <xs:simpleType name="SongType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Unspecified" />
@@ -20,38 +30,59 @@
           </xs:appinfo>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="Instrumental">
+      <xs:enumeration value="Arrangement">
         <xs:annotation>
           <xs:appinfo>
             <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16</EnumerationValue>
           </xs:appinfo>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="Mashup">
+      <xs:enumeration value="Instrumental">
         <xs:annotation>
           <xs:appinfo>
             <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">32</EnumerationValue>
           </xs:appinfo>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="MusicPV">
+      <xs:enumeration value="Mashup">
         <xs:annotation>
           <xs:appinfo>
             <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">64</EnumerationValue>
           </xs:appinfo>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="DramaPV">
+      <xs:enumeration value="MusicPV">
         <xs:annotation>
           <xs:appinfo>
             <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">128</EnumerationValue>
           </xs:appinfo>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="Other">
+      <xs:enumeration value="DramaPV">
         <xs:annotation>
           <xs:appinfo>
             <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">256</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Live">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">512</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Illustration">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1024</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Other">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2048</EnumerationValue>
           </xs:appinfo>
         </xs:annotation>
       </xs:enumeration>
@@ -79,14 +110,4 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="SongVoteRating" nillable="true" type="tns:SongVoteRating" />
-  <xs:simpleType name="SongListFeaturedCategory">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Nothing" />
-      <xs:enumeration value="Concerts" />
-      <xs:enumeration value="VocaloidRanking" />
-      <xs:enumeration value="Pools" />
-      <xs:enumeration value="Other" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="SongListFeaturedCategory" nillable="true" type="tns:SongListFeaturedCategory" />
 </xs:schema>

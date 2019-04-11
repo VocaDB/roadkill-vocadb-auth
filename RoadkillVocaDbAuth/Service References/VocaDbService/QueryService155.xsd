@@ -15,9 +15,12 @@
       <xs:enumeration value="None" />
       <xs:enumeration value="Name" />
       <xs:enumeration value="ReleaseDate" />
+      <xs:enumeration value="ReleaseDateWithNulls" />
       <xs:enumeration value="AdditionDate" />
       <xs:enumeration value="RatingAverage" />
+      <xs:enumeration value="RatingTotal" />
       <xs:enumeration value="NameThenReleaseDate" />
+      <xs:enumeration value="CollectionCount" />
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="AlbumSortRule" nillable="true" type="tns:AlbumSortRule" />

@@ -1,0 +1,1821 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://vocaloid.eu/schemas/VocaDb" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://localhost:44399/Services/QueryService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Service" />
+  <xs:import schemaLocation="https://localhost:44399/Services/QueryService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Albums" />
+  <xs:import schemaLocation="https://localhost:44399/Services/QueryService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain" />
+  <xs:import schemaLocation="https://localhost:44399/Services/QueryService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.ReleaseEvents" />
+  <xs:import schemaLocation="https://localhost:44399/Services/QueryService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" />
+  <xs:import schemaLocation="https://localhost:44399/Services/QueryService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" />
+  <xs:import schemaLocation="https://localhost:44399/Services/QueryService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.ExtLinks" />
+  <xs:import schemaLocation="https://localhost:44399/Services/QueryService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Songs" />
+  <xs:import schemaLocation="https://localhost:44399/Services/QueryService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.PVs" />
+  <xs:import schemaLocation="https://localhost:44399/Services/QueryService.svc?xsd=xsd11" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="https://localhost:44399/Services/QueryService.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Songs" />
+  <xs:import schemaLocation="https://localhost:44399/Services/QueryService.svc?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts" />
+  <xs:import schemaLocation="https://localhost:44399/Services/QueryService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="https://localhost:44399/Services/QueryService.svc?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Users" />
+  <xs:import schemaLocation="https://localhost:44399/Services/QueryService.svc?xsd=xsd15" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Users" />
+  <xs:import schemaLocation="https://localhost:44399/Services/QueryService.svc?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Albums" />
+  <xs:import schemaLocation="https://localhost:44399/Services/QueryService.svc?xsd=xsd17" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Artists" />
+  <xs:import schemaLocation="https://localhost:44399/Services/QueryService.svc?xsd=xsd18" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Tags" />
+  <xs:element name="FindAlbums">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="term" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="maxResults" type="xs:int" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/VocaDb.Model.Service" minOccurs="0" name="nameMatchMode" type="q1:NameMatchMode" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/VocaDb.Model.Service" minOccurs="0" name="sort" type="q2:AlbumSortRule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindAlbumsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="FindAlbumsResult" nillable="true" type="q3:PartialFindResultOfAlbumContractZKwwigZK" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="PartialFindResultOfAlbumContractZKwwigZK">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="PartialFindResultOf{0}{#}" Namespace="http://vocaloid.eu/schemas/VocaDb" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="AlbumContract" Namespace="http://vocaloid.eu/schemas/VocaDb" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q4="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Items" nillable="true" type="q4:ArrayOfAlbumContract" />
+      <xs:element minOccurs="0" name="Term" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q5="http://vocaloid.eu/schemas/VocaDb" name="PartialFindResultOfAlbumContractZKwwigZK" nillable="true" type="q5:PartialFindResultOfAlbumContractZKwwigZK" />
+  <xs:complexType name="ArrayOfAlbumContract">
+    <xs:sequence>
+      <xs:element xmlns:q6="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" maxOccurs="unbounded" name="AlbumContract" nillable="true" type="q6:AlbumContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q7="http://vocaloid.eu/schemas/VocaDb" name="ArrayOfAlbumContract" nillable="true" type="q7:ArrayOfAlbumContract" />
+  <xs:complexType name="AlbumContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalNames" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ArtistString" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CoverPictureMime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Albums" minOccurs="0" name="DiscType" type="q8:DiscType" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RatingAverage" type="xs:double" />
+      <xs:element minOccurs="0" name="RatingCount" type="xs:int" />
+      <xs:element xmlns:q9="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="ReleaseDate" nillable="true" type="q9:OptionalDateTimeContract" />
+      <xs:element xmlns:q10="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="ReleaseEvent" nillable="true" type="q10:ReleaseEventForApiContract" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain" minOccurs="0" name="Status" type="q11:EntryStatus" />
+      <xs:element minOccurs="0" name="Version" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q12="http://vocaloid.eu/schemas/VocaDb" name="AlbumContract" nillable="true" type="q12:AlbumContract" />
+  <xs:complexType name="OptionalDateTimeContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Day" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Formatted" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsEmpty" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Month" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Year" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q13="http://vocaloid.eu/schemas/VocaDb" name="OptionalDateTimeContract" nillable="true" type="q13:OptionalDateTimeContract" />
+  <xs:complexType name="ReleaseEventForApiContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalNames" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q14="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Artists" nillable="true" type="q14:ArrayOfArtistForEventContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.ReleaseEvents" minOccurs="0" name="Category" type="q15:EventCategory" />
+      <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element xmlns:q16="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="MainPicture" nillable="true" type="q16:EntryThumbForApiContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q17="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Names" nillable="true" type="q17:ArrayOfLocalizedStringContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q18="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Series" nillable="true" type="q18:ReleaseEventSeriesContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="SeriesId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SeriesNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="SeriesSuffix" nillable="true" type="xs:string" />
+      <xs:element xmlns:q19="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="SongList" nillable="true" type="q19:SongListBaseContract" />
+      <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain" minOccurs="0" name="Status" type="q20:EntryStatus" />
+      <xs:element minOccurs="0" name="UrlSlug" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VenueName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Version" type="xs:int" />
+      <xs:element xmlns:q21="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="WebLinks" nillable="true" type="q21:ArrayOfWebLinkForApiContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q22="http://vocaloid.eu/schemas/VocaDb" name="ReleaseEventForApiContract" nillable="true" type="q22:ReleaseEventForApiContract" />
+  <xs:complexType name="ArrayOfArtistForEventContract">
+    <xs:sequence>
+      <xs:element xmlns:q23="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" maxOccurs="unbounded" name="ArtistForEventContract" nillable="true" type="q23:ArtistForEventContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q24="http://vocaloid.eu/schemas/VocaDb" name="ArrayOfArtistForEventContract" nillable="true" type="q24:ArrayOfArtistForEventContract" />
+  <xs:complexType name="ArtistForEventContract">
+    <xs:sequence>
+      <xs:element xmlns:q25="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Artist" nillable="true" type="q25:ArtistContract" />
+      <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.ReleaseEvents" minOccurs="0" name="EffectiveRoles" type="q26:ArtistEventRoles" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.ReleaseEvents" minOccurs="0" name="Roles" type="q27:ArtistEventRoles" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q28="http://vocaloid.eu/schemas/VocaDb" name="ArtistForEventContract" nillable="true" type="q28:ArtistForEventContract" />
+  <xs:complexType name="ArtistContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalNames" nillable="true" type="xs:string" />
+      <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" minOccurs="0" name="ArtistType" type="q29:ArtistType" />
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PictureMime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReleaseDate" nillable="true" type="xs:dateTime" />
+      <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain" minOccurs="0" name="Status" type="q30:EntryStatus" />
+      <xs:element minOccurs="0" name="Version" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q31="http://vocaloid.eu/schemas/VocaDb" name="ArtistContract" nillable="true" type="q31:ArtistContract" />
+  <xs:complexType name="EntryThumbForApiContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Mime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UrlSmallThumb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UrlThumb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UrlTinyThumb" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q32="http://vocaloid.eu/schemas/VocaDb" name="EntryThumbForApiContract" nillable="true" type="q32:EntryThumbForApiContract" />
+  <xs:complexType name="ArrayOfLocalizedStringContract">
+    <xs:sequence>
+      <xs:element xmlns:q33="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" maxOccurs="unbounded" name="LocalizedStringContract" nillable="true" type="q33:LocalizedStringContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q34="http://vocaloid.eu/schemas/VocaDb" name="ArrayOfLocalizedStringContract" nillable="true" type="q34:ArrayOfLocalizedStringContract" />
+  <xs:complexType name="LocalizedStringContract">
+    <xs:sequence>
+      <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" minOccurs="0" name="Language" type="q35:ContentLanguageSelection" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q36="http://vocaloid.eu/schemas/VocaDb" name="LocalizedStringContract" nillable="true" type="q36:LocalizedStringContract" />
+  <xs:complexType name="ReleaseEventSeriesContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalNames" nillable="true" type="xs:string" />
+      <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.ReleaseEvents" minOccurs="0" name="Category" type="q37:EventCategory" />
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PictureMime" nillable="true" type="xs:string" />
+      <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain" minOccurs="0" name="Status" type="q38:EntryStatus" />
+      <xs:element minOccurs="0" name="UrlSlug" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Version" type="xs:int" />
+      <xs:element xmlns:q39="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="WebLinks" nillable="true" type="q39:ArrayOfWebLinkContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q40="http://vocaloid.eu/schemas/VocaDb" name="ReleaseEventSeriesContract" nillable="true" type="q40:ReleaseEventSeriesContract" />
+  <xs:complexType name="ArrayOfWebLinkContract">
+    <xs:sequence>
+      <xs:element xmlns:q41="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" maxOccurs="unbounded" name="WebLinkContract" nillable="true" type="q41:WebLinkContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q42="http://vocaloid.eu/schemas/VocaDb" name="ArrayOfWebLinkContract" nillable="true" type="q42:ArrayOfWebLinkContract" />
+  <xs:complexType name="WebLinkContract">
+    <xs:sequence>
+      <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.ExtLinks" minOccurs="0" name="Category" type="q43:WebLinkCategory" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DescriptionOrUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q44="http://vocaloid.eu/schemas/VocaDb" name="WebLinkContract" nillable="true" type="q44:WebLinkContract" />
+  <xs:complexType name="SongListBaseContract">
+    <xs:sequence>
+      <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Songs" minOccurs="0" name="FeaturedCategory" type="q45:SongListFeaturedCategory" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q46="http://vocaloid.eu/schemas/VocaDb" name="SongListBaseContract" nillable="true" type="q46:SongListBaseContract" />
+  <xs:complexType name="ArrayOfWebLinkForApiContract">
+    <xs:sequence>
+      <xs:element xmlns:q47="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" maxOccurs="unbounded" name="WebLinkForApiContract" nillable="true" type="q47:WebLinkForApiContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q48="http://vocaloid.eu/schemas/VocaDb" name="ArrayOfWebLinkForApiContract" nillable="true" type="q48:ArrayOfWebLinkForApiContract" />
+  <xs:complexType name="WebLinkForApiContract">
+    <xs:sequence>
+      <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.ExtLinks" minOccurs="0" name="Category" type="q49:WebLinkCategory" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q50="http://vocaloid.eu/schemas/VocaDb" name="WebLinkForApiContract" nillable="true" type="q50:WebLinkForApiContract" />
+  <xs:element name="FindAlbumsAdvanced">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="term" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="maxResults" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindAlbumsAdvancedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="FindAlbumsAdvancedResult" nillable="true" type="q51:PartialFindResultOfAlbumContractZKwwigZK" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindAll">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="term" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="maxResults" type="xs:int" />
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" minOccurs="0" name="languagePreference" type="q52:ContentLanguagePreference" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="FindAllResult" nillable="true" type="q53:PartialFindResultOfEntryForApiContractZKwwigZK" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="PartialFindResultOfEntryForApiContractZKwwigZK">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="PartialFindResultOf{0}{#}" Namespace="http://vocaloid.eu/schemas/VocaDb" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="EntryForApiContract" Namespace="http://vocaloid.eu/schemas/VocaDb" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q54="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Items" nillable="true" type="q54:ArrayOfEntryForApiContract" />
+      <xs:element minOccurs="0" name="Term" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q55="http://vocaloid.eu/schemas/VocaDb" name="PartialFindResultOfEntryForApiContractZKwwigZK" nillable="true" type="q55:PartialFindResultOfEntryForApiContractZKwwigZK" />
+  <xs:complexType name="ArrayOfEntryForApiContract">
+    <xs:sequence>
+      <xs:element xmlns:q56="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" maxOccurs="unbounded" name="EntryForApiContract" nillable="true" type="q56:EntryForApiContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q57="http://vocaloid.eu/schemas/VocaDb" name="ArrayOfEntryForApiContract" nillable="true" type="q57:ArrayOfEntryForApiContract" />
+  <xs:complexType name="EntryForApiContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActivityDate" nillable="true" type="xs:dateTime">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="AdditionalNames" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ArtistString" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" minOccurs="0" name="ArtistType" nillable="true" type="q58:ArtistType">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DefaultName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" minOccurs="0" name="DefaultNameLanguage" type="q59:ContentLanguageSelection" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Albums" minOccurs="0" name="DiscType" nillable="true" type="q60:DiscType">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain" minOccurs="0" name="EntryType" type="q61:EntryType" />
+      <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.ReleaseEvents" minOccurs="0" name="EventCategory" nillable="true" type="q62:EventCategory">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element xmlns:q63="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="MainPicture" nillable="true" type="q63:EntryThumbForApiContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q64="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Names" nillable="true" type="q64:ArrayOfLocalizedStringContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q65="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="PVs" nillable="true" type="q65:ArrayOfPVContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ReleaseEventSeriesName" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Songs" minOccurs="0" name="SongListFeaturedCategory" nillable="true" type="q66:SongListFeaturedCategory">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Songs" minOccurs="0" name="SongType" nillable="true" type="q67:SongType">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain" minOccurs="0" name="Status" type="q68:EntryStatus" />
+      <xs:element minOccurs="0" name="TagCategoryName" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q69="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Tags" nillable="true" type="q69:ArrayOfTagUsageForApiContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="UrlSlug" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Version" type="xs:int" />
+      <xs:element xmlns:q70="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="WebLinks" nillable="true" type="q70:ArrayOfArchivedWebLinkContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q71="http://vocaloid.eu/schemas/VocaDb" name="EntryForApiContract" nillable="true" type="q71:EntryForApiContract" />
+  <xs:complexType name="ArrayOfPVContract">
+    <xs:sequence>
+      <xs:element xmlns:q72="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" maxOccurs="unbounded" name="PVContract" nillable="true" type="q72:PVContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q73="http://vocaloid.eu/schemas/VocaDb" name="ArrayOfPVContract" nillable="true" type="q73:ArrayOfPVContract" />
+  <xs:complexType name="PVContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Author" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Disabled" type="xs:boolean" />
+      <xs:element xmlns:q74="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="ExtendedMetadata" nillable="true" type="q74:PVExtendedMetadata" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Length" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PVId" nillable="true" type="xs:string" />
+      <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.PVs" minOccurs="0" name="PVType" type="q75:PVType" />
+      <xs:element minOccurs="0" name="PublishDate" nillable="true" type="xs:dateTime" />
+      <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.PVs" minOccurs="0" name="Service" type="q76:PVService" />
+      <xs:element minOccurs="0" name="ThumbUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q77="http://vocaloid.eu/schemas/VocaDb" name="PVContract" nillable="true" type="q77:PVContract" />
+  <xs:complexType name="PVExtendedMetadata">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Json" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q78="http://vocaloid.eu/schemas/VocaDb" name="PVExtendedMetadata" nillable="true" type="q78:PVExtendedMetadata" />
+  <xs:complexType name="ArrayOfTagUsageForApiContract">
+    <xs:sequence>
+      <xs:element xmlns:q79="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" maxOccurs="unbounded" name="TagUsageForApiContract" nillable="true" type="q79:TagUsageForApiContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q80="http://vocaloid.eu/schemas/VocaDb" name="ArrayOfTagUsageForApiContract" nillable="true" type="q80:ArrayOfTagUsageForApiContract" />
+  <xs:complexType name="TagUsageForApiContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Count" type="xs:int" />
+      <xs:element xmlns:q81="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Tag" nillable="true" type="q81:TagBaseContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q82="http://vocaloid.eu/schemas/VocaDb" name="TagUsageForApiContract" nillable="true" type="q82:TagUsageForApiContract" />
+  <xs:complexType name="TagBaseContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalNames" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="CategoryName" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UrlSlug" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q83="http://vocaloid.eu/schemas/VocaDb" name="TagBaseContract" nillable="true" type="q83:TagBaseContract" />
+  <xs:complexType name="ArrayOfArchivedWebLinkContract">
+    <xs:sequence>
+      <xs:element xmlns:q84="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" maxOccurs="unbounded" name="ArchivedWebLinkContract" nillable="true" type="q84:ArchivedWebLinkContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q85="http://vocaloid.eu/schemas/VocaDb" name="ArrayOfArchivedWebLinkContract" nillable="true" type="q85:ArrayOfArchivedWebLinkContract" />
+  <xs:complexType name="ArchivedWebLinkContract">
+    <xs:sequence>
+      <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.ExtLinks" minOccurs="0" name="Category" type="q86:WebLinkCategory" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q87="http://vocaloid.eu/schemas/VocaDb" name="ArchivedWebLinkContract" nillable="true" type="q87:ArchivedWebLinkContract" />
+  <xs:element name="FindArtists">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="term" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="maxResults" type="xs:int" />
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/VocaDb.Model.Service" minOccurs="0" name="nameMatchMode" type="q88:NameMatchMode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindArtistsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q89="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="FindArtistsResult" nillable="true" type="q89:PartialFindResultOfArtistContractZKwwigZK" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="PartialFindResultOfArtistContractZKwwigZK">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="PartialFindResultOf{0}{#}" Namespace="http://vocaloid.eu/schemas/VocaDb" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArtistContract" Namespace="http://vocaloid.eu/schemas/VocaDb" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q90="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Items" nillable="true" type="q90:ArrayOfArtistContract" />
+      <xs:element minOccurs="0" name="Term" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q91="http://vocaloid.eu/schemas/VocaDb" name="PartialFindResultOfArtistContractZKwwigZK" nillable="true" type="q91:PartialFindResultOfArtistContractZKwwigZK" />
+  <xs:complexType name="ArrayOfArtistContract">
+    <xs:sequence>
+      <xs:element xmlns:q92="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" maxOccurs="unbounded" name="ArtistContract" nillable="true" type="q92:ArtistContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q93="http://vocaloid.eu/schemas/VocaDb" name="ArrayOfArtistContract" nillable="true" type="q93:ArrayOfArtistContract" />
+  <xs:element name="FindDuplicate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q94="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="names" nillable="true" type="q94:ArrayOfstring" />
+        <xs:element xmlns:q95="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="pvs" nillable="true" type="q95:ArrayOfstring" />
+        <xs:element xmlns:q96="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="artistIds" nillable="true" type="q96:ArrayOfint" />
+        <xs:element minOccurs="0" name="getPVInfo" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindDuplicateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q97="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="FindDuplicateResult" nillable="true" type="q97:NewSongCheckResultContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="NewSongCheckResultContract">
+    <xs:sequence>
+      <xs:element xmlns:q98="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Artists" nillable="true" type="q98:ArrayOfArtistContract" />
+      <xs:element xmlns:q99="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Matches" nillable="true" type="q99:ArrayOfDuplicateEntryResultContractOfSongMatchPropertyoTF1Br6_P" />
+      <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Songs" minOccurs="0" name="SongType" type="q100:SongType" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" minOccurs="0" name="TitleLanguage" type="q101:ContentLanguageSelection" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q102="http://vocaloid.eu/schemas/VocaDb" name="NewSongCheckResultContract" nillable="true" type="q102:NewSongCheckResultContract" />
+  <xs:complexType name="ArrayOfDuplicateEntryResultContractOfSongMatchPropertyoTF1Br6_P">
+    <xs:sequence>
+      <xs:element xmlns:q103="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" maxOccurs="unbounded" name="DuplicateEntryResultContractOfSongMatchPropertyoTF1Br6_P" nillable="true" type="q103:DuplicateEntryResultContractOfSongMatchPropertyoTF1Br6_P" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q104="http://vocaloid.eu/schemas/VocaDb" name="ArrayOfDuplicateEntryResultContractOfSongMatchPropertyoTF1Br6_P" nillable="true" type="q104:ArrayOfDuplicateEntryResultContractOfSongMatchPropertyoTF1Br6_P" />
+  <xs:complexType name="DuplicateEntryResultContractOfSongMatchPropertyoTF1Br6_P">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="DuplicateEntryResultContractOf{0}{#}" Namespace="http://vocaloid.eu/schemas/VocaDb" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="SongMatchProperty" Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Songs" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q105="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Entry" nillable="true" type="q105:EntryRefWithCommonPropertiesContract" />
+      <xs:element xmlns:q106="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Songs" minOccurs="0" name="MatchProperty" type="q106:SongMatchProperty" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q107="http://vocaloid.eu/schemas/VocaDb" name="DuplicateEntryResultContractOfSongMatchPropertyoTF1Br6_P" nillable="true" type="q107:DuplicateEntryResultContractOfSongMatchPropertyoTF1Br6_P" />
+  <xs:complexType name="EntryRefWithCommonPropertiesContract">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q108="http://vocaloid.eu/schemas/VocaDb" base="q108:EntryRefWithNameContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ArtistString" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EntryTypeName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q109="http://vocaloid.eu/schemas/VocaDb" name="EntryRefWithCommonPropertiesContract" nillable="true" type="q109:EntryRefWithCommonPropertiesContract" />
+  <xs:complexType name="EntryRefWithNameContract">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q110="http://vocaloid.eu/schemas/VocaDb" base="q110:EntryRefContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Name" nillable="true" type="q110:EntryNameContract" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q111="http://vocaloid.eu/schemas/VocaDb" name="EntryRefWithNameContract" nillable="true" type="q111:EntryRefWithNameContract" />
+  <xs:complexType name="EntryRefContract">
+    <xs:sequence>
+      <xs:element xmlns:q112="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain" minOccurs="0" name="EntryType" type="q112:EntryType" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q113="http://vocaloid.eu/schemas/VocaDb" name="EntryRefContract" nillable="true" type="q113:EntryRefContract" />
+  <xs:complexType name="EntryNameContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalNames" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q114="http://vocaloid.eu/schemas/VocaDb" name="EntryNameContract" nillable="true" type="q114:EntryNameContract" />
+  <xs:element name="FindSongs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="term" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="maxResults" type="xs:int" />
+        <xs:element xmlns:q115="http://schemas.datacontract.org/2004/07/VocaDb.Model.Service" minOccurs="0" name="nameMatchMode" type="q115:NameMatchMode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindSongsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q116="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="FindSongsResult" nillable="true" type="q116:PartialFindResultOfSongWithAlbumAndPVsContractoTF1Br6_P" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="PartialFindResultOfSongWithAlbumAndPVsContractoTF1Br6_P">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="PartialFindResultOf{0}{#}" Namespace="http://vocaloid.eu/schemas/VocaDb" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="SongWithAlbumAndPVsContract" Namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Songs" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q117="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Songs" minOccurs="0" name="Items" nillable="true" type="q117:ArrayOfSongWithAlbumAndPVsContract" />
+      <xs:element minOccurs="0" name="Term" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q118="http://vocaloid.eu/schemas/VocaDb" name="PartialFindResultOfSongWithAlbumAndPVsContractoTF1Br6_P" nillable="true" type="q118:PartialFindResultOfSongWithAlbumAndPVsContractoTF1Br6_P" />
+  <xs:complexType name="SongWithAlbumContract">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q119="http://vocaloid.eu/schemas/VocaDb" base="q119:SongContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Album" nillable="true" type="q119:AlbumContract" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q120="http://vocaloid.eu/schemas/VocaDb" name="SongWithAlbumContract" nillable="true" type="q120:SongWithAlbumContract" />
+  <xs:complexType name="SongContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalNames" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ArtistString" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FavoritedTimes" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="LengthSeconds" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NicoId" nillable="true" type="xs:string" />
+      <xs:element xmlns:q121="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.PVs" minOccurs="0" name="PVServices" type="q121:PVServices" />
+      <xs:element minOccurs="0" name="PublishDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RatingScore" type="xs:int" />
+      <xs:element xmlns:q122="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Songs" minOccurs="0" name="SongType" type="q122:SongType" />
+      <xs:element xmlns:q123="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain" minOccurs="0" name="Status" type="q123:EntryStatus" />
+      <xs:element minOccurs="0" name="ThumbUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Version" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q124="http://vocaloid.eu/schemas/VocaDb" name="SongContract" nillable="true" type="q124:SongContract" />
+  <xs:element name="FindTags">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="term" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="maxResults" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindTagsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q125="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FindTagsResult" nillable="true" type="q125:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlbumDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="term" nillable="true" type="xs:string" />
+        <xs:element xmlns:q126="http://schemas.datacontract.org/2004/07/VocaDb.Model.Service" minOccurs="0" name="sort" type="q126:AlbumSortRule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlbumDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q127="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="GetAlbumDetailsResult" nillable="true" type="q127:AlbumContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlbumById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlbumByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q128="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="GetAlbumByIdResult" nillable="true" type="q128:AlbumDetailsContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="AlbumDetailsContract">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q129="http://vocaloid.eu/schemas/VocaDb" base="q129:AlbumContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AlbumForUser" nillable="true" type="q129:AlbumForUserContract" />
+          <xs:element minOccurs="0" name="ArtistLinks" nillable="true" type="q129:ArrayOfArtistForAlbumContract" />
+          <xs:element minOccurs="0" name="CommentCount" type="xs:int" />
+          <xs:element xmlns:q130="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" minOccurs="0" name="Description" nillable="true" type="q130:EnglishTranslatedString" />
+          <xs:element xmlns:q131="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Discs" nillable="true" type="q131:ArrayOfKeyValueOfintAlbumDiscPropertiesContract5nwuTn8g" />
+          <xs:element minOccurs="0" name="Hits" type="xs:int" />
+          <xs:element xmlns:q132="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts" minOccurs="0" name="LatestComments" nillable="true" type="q132:ArrayOfCommentForApiContract" />
+          <xs:element minOccurs="0" name="MergedTo" nillable="true" type="q129:AlbumContract" />
+          <xs:element minOccurs="0" name="OriginalRelease" nillable="true" type="q129:AlbumReleaseContract" />
+          <xs:element minOccurs="0" name="PVs" nillable="true" type="q129:ArrayOfPVContract" />
+          <xs:element minOccurs="0" name="PersonalDescriptionAuthor" nillable="true" type="q129:ArtistForApiContract" />
+          <xs:element minOccurs="0" name="PersonalDescriptionText" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Pictures" nillable="true" type="q129:ArrayOfEntryPictureFileContract" />
+          <xs:element minOccurs="0" name="Songs" nillable="true" type="q129:ArrayOfSongInAlbumContract" />
+          <xs:element minOccurs="0" name="Stats" nillable="true" type="q129:SharedAlbumStatsContract" />
+          <xs:element minOccurs="0" name="Tags" nillable="true" type="q129:ArrayOfTagUsageForApiContract" />
+          <xs:element minOccurs="0" name="TotalLength" type="ser:duration" />
+          <xs:element minOccurs="0" name="WebLinks" nillable="true" type="q129:ArrayOfWebLinkContract" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q133="http://vocaloid.eu/schemas/VocaDb" name="AlbumDetailsContract" nillable="true" type="q133:AlbumDetailsContract" />
+  <xs:complexType name="AlbumForUserContract">
+    <xs:sequence>
+      <xs:element xmlns:q134="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Album" nillable="true" type="q134:AlbumContract" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element xmlns:q135="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Users" minOccurs="0" name="MediaType" type="q135:MediaType" />
+      <xs:element xmlns:q136="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Users" minOccurs="0" name="PurchaseStatus" type="q136:PurchaseStatus" />
+      <xs:element minOccurs="0" name="Rating" type="xs:int" />
+      <xs:element xmlns:q137="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="User" nillable="true" type="q137:UserContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q138="http://vocaloid.eu/schemas/VocaDb" name="AlbumForUserContract" nillable="true" type="q138:AlbumForUserContract" />
+  <xs:complexType name="UserContract">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q139="http://vocaloid.eu/schemas/VocaDb" base="q139:UserWithEmailContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Active" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AnonymousActivity" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Culture" nillable="true" type="xs:string" />
+          <xs:element xmlns:q140="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" minOccurs="0" name="DefaultLanguageSelection" type="q140:ContentLanguagePreference" />
+          <xs:element xmlns:q141="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Users" minOccurs="0" name="EmailOptions" type="q141:UserEmailOptions" />
+          <xs:element xmlns:q142="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Users" minOccurs="0" name="GroupId" type="q142:UserGroupId" />
+          <xs:element minOccurs="0" name="Language" nillable="true" type="xs:string" />
+          <xs:element xmlns:q143="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.PVs" minOccurs="0" name="PreferredVideoService" type="q143:PVService" />
+          <xs:element minOccurs="0" name="PublicAlbumCollection" type="xs:boolean" />
+          <xs:element minOccurs="0" name="VerifiedArtist" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q144="http://vocaloid.eu/schemas/VocaDb" name="UserContract" nillable="true" type="q144:UserContract" />
+  <xs:complexType name="UserWithEmailContract">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q145="http://vocaloid.eu/schemas/VocaDb" base="q145:UserBaseContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q146="http://vocaloid.eu/schemas/VocaDb" name="UserWithEmailContract" nillable="true" type="q146:UserWithEmailContract" />
+  <xs:complexType name="UserBaseContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q147="http://vocaloid.eu/schemas/VocaDb" name="UserBaseContract" nillable="true" type="q147:UserBaseContract" />
+  <xs:complexType name="ArrayOfArtistForAlbumContract">
+    <xs:sequence>
+      <xs:element xmlns:q148="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" maxOccurs="unbounded" name="ArtistForAlbumContract" nillable="true" type="q148:ArtistForAlbumContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q149="http://vocaloid.eu/schemas/VocaDb" name="ArrayOfArtistForAlbumContract" nillable="true" type="q149:ArrayOfArtistForAlbumContract" />
+  <xs:complexType name="ArtistForAlbumContract">
+    <xs:sequence>
+      <xs:element xmlns:q150="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Artist" nillable="true" type="q150:ArtistContract" />
+      <xs:element xmlns:q151="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" minOccurs="0" name="Categories" type="q151:ArtistCategories" />
+      <xs:element xmlns:q152="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" minOccurs="0" name="EffectiveRoles" type="q152:ArtistRoles" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsCustomName" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSupport" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q153="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" minOccurs="0" name="Roles" type="q153:ArtistRoles" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q154="http://vocaloid.eu/schemas/VocaDb" name="ArtistForAlbumContract" nillable="true" type="q154:ArtistForAlbumContract" />
+  <xs:complexType name="AlbumDiscPropertiesContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiscNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element xmlns:q155="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Albums" minOccurs="0" name="MediaType" type="q155:DiscMediaType" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q156="http://vocaloid.eu/schemas/VocaDb" name="AlbumDiscPropertiesContract" nillable="true" type="q156:AlbumDiscPropertiesContract" />
+  <xs:complexType name="UserForApiContract">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q157="http://vocaloid.eu/schemas/VocaDb" base="q157:UserBaseContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Active" type="xs:boolean" />
+          <xs:element xmlns:q158="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Users" minOccurs="0" name="GroupId" type="q158:UserGroupId" />
+          <xs:element minOccurs="0" name="KnownLanguages" nillable="true" type="q157:ArrayOfUserKnownLanguageContract">
+            <xs:annotation>
+              <xs:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="MainPicture" nillable="true" type="q157:EntryThumbForApiContract">
+            <xs:annotation>
+              <xs:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="MemberSince" type="xs:dateTime" />
+          <xs:element xmlns:q159="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Users" minOccurs="0" name="OldUsernames" nillable="true" type="q159:ArrayOfOldUsernameContract">
+            <xs:annotation>
+              <xs:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="VerifiedArtist" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q160="http://vocaloid.eu/schemas/VocaDb" name="UserForApiContract" nillable="true" type="q160:UserForApiContract" />
+  <xs:complexType name="ArrayOfUserKnownLanguageContract">
+    <xs:sequence>
+      <xs:element xmlns:q161="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" maxOccurs="unbounded" name="UserKnownLanguageContract" nillable="true" type="q161:UserKnownLanguageContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q162="http://vocaloid.eu/schemas/VocaDb" name="ArrayOfUserKnownLanguageContract" nillable="true" type="q162:ArrayOfUserKnownLanguageContract" />
+  <xs:complexType name="UserKnownLanguageContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CultureCode" nillable="true" type="xs:string" />
+      <xs:element xmlns:q163="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Users" minOccurs="0" name="Proficiency" type="q163:UserLanguageProficiency" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q164="http://vocaloid.eu/schemas/VocaDb" name="UserKnownLanguageContract" nillable="true" type="q164:UserKnownLanguageContract" />
+  <xs:complexType name="AlbumReleaseContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CatNum" nillable="true" type="xs:string" />
+      <xs:element xmlns:q165="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="ReleaseDate" nillable="true" type="q165:OptionalDateTimeContract" />
+      <xs:element xmlns:q166="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="ReleaseEvent" nillable="true" type="q166:ReleaseEventForApiContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q167="http://vocaloid.eu/schemas/VocaDb" name="AlbumReleaseContract" nillable="true" type="q167:AlbumReleaseContract" />
+  <xs:complexType name="ArtistForApiContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalNames" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q168="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="ArtistLinks" nillable="true" type="q168:ArrayOfArtistForArtistForApiContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q169="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="ArtistLinksReverse" nillable="true" type="q169:ArrayOfArtistForArtistForApiContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q170="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" minOccurs="0" name="ArtistType" type="q170:ArtistType" />
+      <xs:element xmlns:q171="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="BaseVoicebank" nillable="true" type="q171:ArtistContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DefaultName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q172="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" minOccurs="0" name="DefaultNameLanguage" type="q172:ContentLanguageSelection" />
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element xmlns:q173="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="MainPicture" nillable="true" type="q173:EntryThumbForApiContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="MergedTo" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q174="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Names" nillable="true" type="q174:ArrayOfLocalizedStringContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="PictureMime" nillable="true" type="xs:string" />
+      <xs:element xmlns:q175="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Relations" nillable="true" type="q175:ArtistRelationsForApi">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ReleaseDate" nillable="true" type="xs:dateTime" />
+      <xs:element xmlns:q176="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain" minOccurs="0" name="Status" type="q176:EntryStatus" />
+      <xs:element xmlns:q177="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Tags" nillable="true" type="q177:ArrayOfTagUsageForApiContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Version" type="xs:int" />
+      <xs:element xmlns:q178="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="WebLinks" nillable="true" type="q178:ArrayOfWebLinkForApiContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q179="http://vocaloid.eu/schemas/VocaDb" name="ArtistForApiContract" nillable="true" type="q179:ArtistForApiContract" />
+  <xs:complexType name="ArrayOfArtistForArtistForApiContract">
+    <xs:sequence>
+      <xs:element xmlns:q180="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" maxOccurs="unbounded" name="ArtistForArtistForApiContract" nillable="true" type="q180:ArtistForArtistForApiContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q181="http://vocaloid.eu/schemas/VocaDb" name="ArrayOfArtistForArtistForApiContract" nillable="true" type="q181:ArrayOfArtistForArtistForApiContract" />
+  <xs:complexType name="ArtistForArtistForApiContract">
+    <xs:sequence>
+      <xs:element xmlns:q182="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Artist" nillable="true" type="q182:ArtistContract" />
+      <xs:element xmlns:q183="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" minOccurs="0" name="LinkType" type="q183:ArtistLinkType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q184="http://vocaloid.eu/schemas/VocaDb" name="ArtistForArtistForApiContract" nillable="true" type="q184:ArtistForArtistForApiContract" />
+  <xs:complexType name="ArtistRelationsForApi">
+    <xs:sequence>
+      <xs:element xmlns:q185="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="LatestAlbums" nillable="true" type="q185:ArrayOfAlbumForApiContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q186="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="LatestEvents" nillable="true" type="q186:ArrayOfReleaseEventForApiContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q187="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="LatestSongs" nillable="true" type="q187:ArrayOfSongForApiContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q188="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="PopularAlbums" nillable="true" type="q188:ArrayOfAlbumForApiContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q189="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="PopularSongs" nillable="true" type="q189:ArrayOfSongForApiContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q190="http://vocaloid.eu/schemas/VocaDb" name="ArtistRelationsForApi" nillable="true" type="q190:ArtistRelationsForApi" />
+  <xs:complexType name="ArrayOfAlbumForApiContract">
+    <xs:sequence>
+      <xs:element xmlns:q191="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" maxOccurs="unbounded" name="AlbumForApiContract" nillable="true" type="q191:AlbumForApiContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q192="http://vocaloid.eu/schemas/VocaDb" name="ArrayOfAlbumForApiContract" nillable="true" type="q192:ArrayOfAlbumForApiContract" />
+  <xs:complexType name="AlbumForApiContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalNames" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ArtistString" nillable="true" type="xs:string" />
+      <xs:element xmlns:q193="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Artists" nillable="true" type="q193:ArrayOfArtistForAlbumForApiContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Barcode" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="CatalogNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DefaultName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q194="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" minOccurs="0" name="DefaultNameLanguage" type="q194:ContentLanguageSelection" />
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q195="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Albums" minOccurs="0" name="DiscType" type="q195:DiscType" />
+      <xs:element xmlns:q196="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Discs" nillable="true" type="q196:ArrayOfAlbumDiscPropertiesContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element xmlns:q197="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Identifiers" nillable="true" type="q197:ArrayOfAlbumIdentifierContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q198="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="MainPicture" nillable="true" type="q198:EntryThumbForApiContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="MergedTo" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q199="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Names" nillable="true" type="q199:ArrayOfLocalizedStringContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q200="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="PVs" nillable="true" type="q200:ArrayOfPVContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="RatingAverage" type="xs:double" />
+      <xs:element minOccurs="0" name="RatingCount" type="xs:int" />
+      <xs:element xmlns:q201="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="ReleaseDate" nillable="true" type="q201:OptionalDateTimeContract" />
+      <xs:element xmlns:q202="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="ReleaseEvent" nillable="true" type="q202:ReleaseEventForApiContract" />
+      <xs:element xmlns:q203="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain" minOccurs="0" name="Status" type="q203:EntryStatus" />
+      <xs:element xmlns:q204="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Tags" nillable="true" type="q204:ArrayOfTagUsageForApiContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q205="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Tracks" nillable="true" type="q205:ArrayOfSongInAlbumForApiContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Version" type="xs:int" />
+      <xs:element xmlns:q206="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="WebLinks" nillable="true" type="q206:ArrayOfWebLinkForApiContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q207="http://vocaloid.eu/schemas/VocaDb" name="AlbumForApiContract" nillable="true" type="q207:AlbumForApiContract" />
+  <xs:complexType name="ArrayOfArtistForAlbumForApiContract">
+    <xs:sequence>
+      <xs:element xmlns:q208="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" maxOccurs="unbounded" name="ArtistForAlbumForApiContract" nillable="true" type="q208:ArtistForAlbumForApiContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q209="http://vocaloid.eu/schemas/VocaDb" name="ArrayOfArtistForAlbumForApiContract" nillable="true" type="q209:ArrayOfArtistForAlbumForApiContract" />
+  <xs:complexType name="ArtistForAlbumForApiContract">
+    <xs:sequence>
+      <xs:element xmlns:q210="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Artist" nillable="true" type="q210:ArtistContract" />
+      <xs:element xmlns:q211="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" minOccurs="0" name="Categories" type="q211:ArtistCategories" />
+      <xs:element xmlns:q212="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" minOccurs="0" name="EffectiveRoles" type="q212:ArtistRoles" />
+      <xs:element minOccurs="0" name="IsSupport" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q213="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" minOccurs="0" name="Roles" type="q213:ArtistRoles" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q214="http://vocaloid.eu/schemas/VocaDb" name="ArtistForAlbumForApiContract" nillable="true" type="q214:ArtistForAlbumForApiContract" />
+  <xs:complexType name="ArrayOfAlbumDiscPropertiesContract">
+    <xs:sequence>
+      <xs:element xmlns:q215="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" maxOccurs="unbounded" name="AlbumDiscPropertiesContract" nillable="true" type="q215:AlbumDiscPropertiesContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q216="http://vocaloid.eu/schemas/VocaDb" name="ArrayOfAlbumDiscPropertiesContract" nillable="true" type="q216:ArrayOfAlbumDiscPropertiesContract" />
+  <xs:complexType name="ArrayOfAlbumIdentifierContract">
+    <xs:sequence>
+      <xs:element xmlns:q217="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" maxOccurs="unbounded" name="AlbumIdentifierContract" nillable="true" type="q217:AlbumIdentifierContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q218="http://vocaloid.eu/schemas/VocaDb" name="ArrayOfAlbumIdentifierContract" nillable="true" type="q218:ArrayOfAlbumIdentifierContract" />
+  <xs:complexType name="AlbumIdentifierContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q219="http://vocaloid.eu/schemas/VocaDb" name="AlbumIdentifierContract" nillable="true" type="q219:AlbumIdentifierContract" />
+  <xs:complexType name="ArrayOfSongInAlbumForApiContract">
+    <xs:sequence>
+      <xs:element xmlns:q220="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" maxOccurs="unbounded" name="SongInAlbumForApiContract" nillable="true" type="q220:SongInAlbumForApiContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q221="http://vocaloid.eu/schemas/VocaDb" name="ArrayOfSongInAlbumForApiContract" nillable="true" type="q221:ArrayOfSongInAlbumForApiContract" />
+  <xs:complexType name="SongInAlbumForApiContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiscNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q222="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Song" nillable="true" type="q222:SongForApiContract" />
+      <xs:element minOccurs="0" name="TrackNumber" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q223="http://vocaloid.eu/schemas/VocaDb" name="SongInAlbumForApiContract" nillable="true" type="q223:SongInAlbumForApiContract" />
+  <xs:complexType name="SongForApiContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalNames" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q224="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Albums" nillable="true" type="q224:ArrayOfAlbumContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ArtistString" nillable="true" type="xs:string" />
+      <xs:element xmlns:q225="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Artists" nillable="true" type="q225:ArrayOfArtistForSongContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DefaultName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q226="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" minOccurs="0" name="DefaultNameLanguage" type="q226:ContentLanguageSelection" />
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="FavoritedTimes" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="LengthSeconds" type="xs:int" />
+      <xs:element xmlns:q227="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Lyrics" nillable="true" type="q227:ArrayOfLyricsForSongContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q228="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="MainPicture" nillable="true" type="q228:EntryThumbForApiContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="MergedTo" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q229="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Names" nillable="true" type="q229:ArrayOfLocalizedStringContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="OriginalVersionId" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q230="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.PVs" minOccurs="0" name="PVServices" type="q230:PVServices" />
+      <xs:element xmlns:q231="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="PVs" nillable="true" type="q231:ArrayOfPVContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="PublishDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RatingScore" type="xs:int" />
+      <xs:element xmlns:q232="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="ReleaseEvent" nillable="true" type="q232:ReleaseEventForApiContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q233="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Songs" minOccurs="0" name="SongType" type="q233:SongType" />
+      <xs:element xmlns:q234="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain" minOccurs="0" name="Status" type="q234:EntryStatus" />
+      <xs:element xmlns:q235="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Tags" nillable="true" type="q235:ArrayOfTagUsageForApiContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ThumbUrl" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Version" type="xs:int" />
+      <xs:element xmlns:q236="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="WebLinks" nillable="true" type="q236:ArrayOfWebLinkForApiContract">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q237="http://vocaloid.eu/schemas/VocaDb" name="SongForApiContract" nillable="true" type="q237:SongForApiContract" />
+  <xs:complexType name="ArrayOfArtistForSongContract">
+    <xs:sequence>
+      <xs:element xmlns:q238="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" maxOccurs="unbounded" name="ArtistForSongContract" nillable="true" type="q238:ArtistForSongContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q239="http://vocaloid.eu/schemas/VocaDb" name="ArrayOfArtistForSongContract" nillable="true" type="q239:ArrayOfArtistForSongContract" />
+  <xs:complexType name="ArtistForSongContract">
+    <xs:sequence>
+      <xs:element xmlns:q240="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Artist" nillable="true" type="q240:ArtistContract" />
+      <xs:element xmlns:q241="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" minOccurs="0" name="Categories" type="q241:ArtistCategories" />
+      <xs:element xmlns:q242="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" minOccurs="0" name="EffectiveRoles" type="q242:ArtistRoles" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsCustomName" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSupport" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q243="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" minOccurs="0" name="Roles" type="q243:ArtistRoles" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q244="http://vocaloid.eu/schemas/VocaDb" name="ArtistForSongContract" nillable="true" type="q244:ArtistForSongContract" />
+  <xs:complexType name="ArrayOfLyricsForSongContract">
+    <xs:sequence>
+      <xs:element xmlns:q245="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" maxOccurs="unbounded" name="LyricsForSongContract" nillable="true" type="q245:LyricsForSongContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q246="http://vocaloid.eu/schemas/VocaDb" name="ArrayOfLyricsForSongContract" nillable="true" type="q246:ArrayOfLyricsForSongContract" />
+  <xs:complexType name="LyricsForSongContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CultureCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Source" nillable="true" type="xs:string" />
+      <xs:element xmlns:q247="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" minOccurs="0" name="TranslationType" type="q247:TranslationType" />
+      <xs:element minOccurs="0" name="URL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q248="http://vocaloid.eu/schemas/VocaDb" name="LyricsForSongContract" nillable="true" type="q248:LyricsForSongContract" />
+  <xs:complexType name="ArrayOfReleaseEventForApiContract">
+    <xs:sequence>
+      <xs:element xmlns:q249="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" maxOccurs="unbounded" name="ReleaseEventForApiContract" nillable="true" type="q249:ReleaseEventForApiContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q250="http://vocaloid.eu/schemas/VocaDb" name="ArrayOfReleaseEventForApiContract" nillable="true" type="q250:ArrayOfReleaseEventForApiContract" />
+  <xs:complexType name="ArrayOfSongForApiContract">
+    <xs:sequence>
+      <xs:element xmlns:q251="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" maxOccurs="unbounded" name="SongForApiContract" nillable="true" type="q251:SongForApiContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q252="http://vocaloid.eu/schemas/VocaDb" name="ArrayOfSongForApiContract" nillable="true" type="q252:ArrayOfSongForApiContract" />
+  <xs:complexType name="ArrayOfEntryPictureFileContract">
+    <xs:sequence>
+      <xs:element xmlns:q253="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" maxOccurs="unbounded" name="EntryPictureFileContract" nillable="true" type="q253:EntryPictureFileContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q254="http://vocaloid.eu/schemas/VocaDb" name="ArrayOfEntryPictureFileContract" nillable="true" type="q254:ArrayOfEntryPictureFileContract" />
+  <xs:complexType name="EntryPictureFileContract">
+    <xs:sequence>
+      <xs:element xmlns:q255="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain" minOccurs="0" name="EntryType" type="q255:EntryType" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Mime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OriginalFileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerEntryId" type="xs:int" />
+      <xs:element minOccurs="0" name="ThumbUrl" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q256="http://vocaloid.eu/schemas/VocaDb" name="EntryPictureFileContract" nillable="true" type="q256:EntryPictureFileContract" />
+  <xs:complexType name="ArrayOfSongInAlbumContract">
+    <xs:sequence>
+      <xs:element xmlns:q257="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" maxOccurs="unbounded" name="SongInAlbumContract" nillable="true" type="q257:SongInAlbumContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q258="http://vocaloid.eu/schemas/VocaDb" name="ArrayOfSongInAlbumContract" nillable="true" type="q258:ArrayOfSongInAlbumContract" />
+  <xs:complexType name="SongInAlbumContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiscNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q259="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Songs" minOccurs="0" name="Rating" nillable="true" type="q259:SongVoteRating" />
+      <xs:element xmlns:q260="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Song" nillable="true" type="q260:SongContract" />
+      <xs:element minOccurs="0" name="TrackNumber" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q261="http://vocaloid.eu/schemas/VocaDb" name="SongInAlbumContract" nillable="true" type="q261:SongInAlbumContract" />
+  <xs:complexType name="SharedAlbumStatsContract">
+    <xs:sequence>
+      <xs:element xmlns:q262="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Albums" minOccurs="0" name="LatestReview" nillable="true" type="q262:AlbumReviewContract" />
+      <xs:element minOccurs="0" name="LatestReviewRatingScore" type="xs:int" />
+      <xs:element minOccurs="0" name="OwnedCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ReviewCount" type="xs:int" />
+      <xs:element minOccurs="0" name="WishlistCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q263="http://vocaloid.eu/schemas/VocaDb" name="SharedAlbumStatsContract" nillable="true" type="q263:SharedAlbumStatsContract" />
+  <xs:element name="GetArtistDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="term" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetArtistDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q264="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="GetArtistDetailsResult" nillable="true" type="q264:ArtistDetailsContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArtistDetailsContract">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q265="http://vocaloid.eu/schemas/VocaDb" base="q265:ArtistContract">
+        <xs:sequence>
+          <xs:element xmlns:q266="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Artists" minOccurs="0" name="AdvancedStats" nillable="true" type="q266:AdvancedArtistStatsContract" />
+          <xs:element minOccurs="0" name="AllNames" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BaseVoicebank" nillable="true" type="q265:ArtistContract" />
+          <xs:element minOccurs="0" name="CharacterDesigner" nillable="true" type="q265:ArtistContract" />
+          <xs:element minOccurs="0" name="CharacterDesignerOf" nillable="true" type="q265:ArrayOfArtistContract" />
+          <xs:element minOccurs="0" name="ChildVoicebanks" nillable="true" type="q265:ArrayOfArtistContract" />
+          <xs:element minOccurs="0" name="CommentCount" type="xs:int" />
+          <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+          <xs:element xmlns:q267="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" minOccurs="0" name="Description" nillable="true" type="q267:EnglishTranslatedString" />
+          <xs:element minOccurs="0" name="Draft" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EmailNotifications" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Groups" nillable="true" type="q265:ArrayOfArtistContract" />
+          <xs:element minOccurs="0" name="IllustratorOf" nillable="true" type="q265:ArrayOfArtistContract" />
+          <xs:element minOccurs="0" name="Illustrators" nillable="true" type="q265:ArrayOfArtistContract" />
+          <xs:element minOccurs="0" name="IsAdded" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LatestAlbums" nillable="true" type="q265:ArrayOfAlbumForApiContract" />
+          <xs:element xmlns:q268="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts" minOccurs="0" name="LatestComments" nillable="true" type="q268:ArrayOfCommentForApiContract" />
+          <xs:element minOccurs="0" name="LatestEvents" nillable="true" type="q265:ArrayOfReleaseEventForApiContract" />
+          <xs:element minOccurs="0" name="LatestSongs" nillable="true" type="q265:ArrayOfSongForApiContract" />
+          <xs:element minOccurs="0" name="Manager" nillable="true" type="q265:ArtistContract" />
+          <xs:element minOccurs="0" name="Members" nillable="true" type="q265:ArrayOfArtistContract" />
+          <xs:element minOccurs="0" name="MergedTo" nillable="true" type="q265:ArtistContract" />
+          <xs:element minOccurs="0" name="OwnerUsers" nillable="true" type="q265:ArrayOfUserContract" />
+          <xs:element minOccurs="0" name="PersonalStats" nillable="true" type="q265:PersonalArtistStatsContract" />
+          <xs:element minOccurs="0" name="Pictures" nillable="true" type="q265:ArrayOfEntryPictureFileContract" />
+          <xs:element minOccurs="0" name="SharedStats" nillable="true" type="q265:SharedArtistStatsContract" />
+          <xs:element minOccurs="0" name="SiteNotifications" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Tags" nillable="true" type="q265:ArrayOfTagUsageForApiContract" />
+          <xs:element minOccurs="0" name="TopAlbums" nillable="true" type="q265:ArrayOfAlbumForApiContract" />
+          <xs:element minOccurs="0" name="TopSongs" nillable="true" type="q265:ArrayOfSongForApiContract" />
+          <xs:element minOccurs="0" name="TranslatedName" nillable="true" type="q265:TranslatedStringContract" />
+          <xs:element minOccurs="0" name="VoiceProviders" nillable="true" type="q265:ArrayOfArtistContract" />
+          <xs:element minOccurs="0" name="Voicebanks" nillable="true" type="q265:ArrayOfArtistContract" />
+          <xs:element minOccurs="0" name="WebLinks" nillable="true" type="q265:ArrayOfWebLinkContract" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q269="http://vocaloid.eu/schemas/VocaDb" name="ArtistDetailsContract" nillable="true" type="q269:ArtistDetailsContract" />
+  <xs:complexType name="ArrayOfUserContract">
+    <xs:sequence>
+      <xs:element xmlns:q270="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" maxOccurs="unbounded" name="UserContract" nillable="true" type="q270:UserContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q271="http://vocaloid.eu/schemas/VocaDb" name="ArrayOfUserContract" nillable="true" type="q271:ArrayOfUserContract" />
+  <xs:complexType name="PersonalArtistStatsContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SongRatingCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q272="http://vocaloid.eu/schemas/VocaDb" name="PersonalArtistStatsContract" nillable="true" type="q272:PersonalArtistStatsContract" />
+  <xs:complexType name="SharedArtistStatsContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlbumCount" type="xs:int" />
+      <xs:element minOccurs="0" name="AlbumRatingAverage" type="xs:double" />
+      <xs:element minOccurs="0" name="EventCount" type="xs:int" />
+      <xs:element minOccurs="0" name="FollowerCount" type="xs:int" />
+      <xs:element minOccurs="0" name="RatedAlbumCount" type="xs:int" />
+      <xs:element minOccurs="0" name="RatedSongCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SongCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q273="http://vocaloid.eu/schemas/VocaDb" name="SharedArtistStatsContract" nillable="true" type="q273:SharedArtistStatsContract" />
+  <xs:complexType name="TranslatedStringContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Default" nillable="true" type="xs:string" />
+      <xs:element xmlns:q274="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" minOccurs="0" name="DefaultLanguage" type="q274:ContentLanguageSelection" />
+      <xs:element minOccurs="0" name="English" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Japanese" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Romaji" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q275="http://vocaloid.eu/schemas/VocaDb" name="TranslatedStringContract" nillable="true" type="q275:TranslatedStringContract" />
+  <xs:element name="GetArtistById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetArtistByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q276="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="GetArtistByIdResult" nillable="true" type="q276:ArtistDetailsContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetArtistsWithYoutubeChannels">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q277="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" minOccurs="0" name="languagePreference" type="q277:ContentLanguagePreference" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetArtistsWithYoutubeChannelsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q278="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="GetArtistsWithYoutubeChannelsResult" nillable="true" type="q278:ArrayOfArtistForApiContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfArtistForApiContract">
+    <xs:sequence>
+      <xs:element xmlns:q279="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" maxOccurs="unbounded" name="ArtistForApiContract" nillable="true" type="q279:ArtistForApiContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q280="http://vocaloid.eu/schemas/VocaDb" name="ArrayOfArtistForApiContract" nillable="true" type="q280:ArrayOfArtistForApiContract" />
+  <xs:element name="GetSongById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element xmlns:q281="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" minOccurs="0" name="language" nillable="true" type="q281:ContentLanguagePreference" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSongByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q282="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="GetSongByIdResult" nillable="true" type="q282:SongDetailsContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="SongDetailsContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalNames" nillable="true" type="xs:string" />
+      <xs:element xmlns:q283="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="AlbumSong" nillable="true" type="q283:SongInAlbumContract" />
+      <xs:element xmlns:q284="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Albums" nillable="true" type="q284:ArrayOfAlbumContract" />
+      <xs:element xmlns:q285="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="AlternateVersions" nillable="true" type="q285:ArrayOfSongContract" />
+      <xs:element minOccurs="0" name="ArtistString" nillable="true" type="xs:string" />
+      <xs:element xmlns:q286="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Artists" nillable="true" type="q286:ArrayOfArtistForSongContract" />
+      <xs:element minOccurs="0" name="CommentCount" type="xs:int" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Hits" type="xs:int" />
+      <xs:element xmlns:q287="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts" minOccurs="0" name="LatestComments" nillable="true" type="q287:ArrayOfCommentForApiContract" />
+      <xs:element minOccurs="0" name="LikeCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ListCount" type="xs:int" />
+      <xs:element xmlns:q288="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="LyricsFromParents" nillable="true" type="q288:ArrayOfLyricsForSongContract" />
+      <xs:element xmlns:q289="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="MergedTo" nillable="true" type="q289:SongContract" />
+      <xs:element xmlns:q290="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="NextSong" nillable="true" type="q290:SongInAlbumContract" />
+      <xs:element xmlns:q291="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" minOccurs="0" name="Notes" nillable="true" type="q291:EnglishTranslatedString" />
+      <xs:element xmlns:q292="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="OriginalVersion" nillable="true" type="q292:SongForApiContract" />
+      <xs:element xmlns:q293="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="PersonalDescriptionAuthor" nillable="true" type="q293:ArtistForApiContract" />
+      <xs:element minOccurs="0" name="PersonalDescriptionText" nillable="true" type="xs:string" />
+      <xs:element xmlns:q294="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Pools" nillable="true" type="q294:ArrayOfSongListBaseContract" />
+      <xs:element xmlns:q295="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="PreviousSong" nillable="true" type="q295:SongInAlbumContract" />
+      <xs:element xmlns:q296="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="ReleaseEvent" nillable="true" type="q296:ReleaseEventForApiContract" />
+      <xs:element xmlns:q297="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Song" nillable="true" type="q297:SongContract" />
+      <xs:element xmlns:q298="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="SubjectsFromParents" nillable="true" type="q298:ArrayOfArtistForSongContract" />
+      <xs:element xmlns:q299="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Suggestions" nillable="true" type="q299:ArrayOfSongForApiContract" />
+      <xs:element xmlns:q300="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Tags" nillable="true" type="q300:ArrayOfTagUsageForApiContract" />
+      <xs:element xmlns:q301="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="TranslatedName" nillable="true" type="q301:TranslatedStringContract" />
+      <xs:element xmlns:q302="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Songs" minOccurs="0" name="UserRating" type="q302:SongVoteRating" />
+      <xs:element xmlns:q303="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="WebLinks" nillable="true" type="q303:ArrayOfWebLinkContract" />
+      <xs:element xmlns:q304="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="pvs" nillable="true" type="q304:ArrayOfPVContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q305="http://vocaloid.eu/schemas/VocaDb" name="SongDetailsContract" nillable="true" type="q305:SongDetailsContract" />
+  <xs:complexType name="ArrayOfSongContract">
+    <xs:sequence>
+      <xs:element xmlns:q306="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" maxOccurs="unbounded" name="SongContract" nillable="true" type="q306:SongContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q307="http://vocaloid.eu/schemas/VocaDb" name="ArrayOfSongContract" nillable="true" type="q307:ArrayOfSongContract" />
+  <xs:complexType name="ArrayOfSongListBaseContract">
+    <xs:sequence>
+      <xs:element xmlns:q308="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" maxOccurs="unbounded" name="SongListBaseContract" nillable="true" type="q308:SongListBaseContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q309="http://vocaloid.eu/schemas/VocaDb" name="ArrayOfSongListBaseContract" nillable="true" type="q309:ArrayOfSongListBaseContract" />
+  <xs:element name="GetSongDetailsByNameArtistAndAlbum">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="artist" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="album" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSongDetailsByNameArtistAndAlbumResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q310="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="GetSongDetailsByNameArtistAndAlbumResult" nillable="true" type="q310:SongDetailsContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSongDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="term" nillable="true" type="xs:string" />
+        <xs:element xmlns:q311="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" minOccurs="0" name="language" nillable="true" type="q311:ContentLanguagePreference" />
+        <xs:element xmlns:q312="http://schemas.datacontract.org/2004/07/VocaDb.Model.Service" minOccurs="0" name="matchMode" type="q312:NameMatchMode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSongDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q313="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="GetSongDetailsResult" nillable="true" type="q313:SongDetailsContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSongListById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSongListByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q314="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="GetSongListByIdResult" nillable="true" type="q314:SongListContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="SongListContract">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q315="http://vocaloid.eu/schemas/VocaDb" base="q315:SongListBaseContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Author" nillable="true" type="q315:UserWithEmailContract" />
+          <xs:element minOccurs="0" name="CanEdit" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EventDate" nillable="true" type="xs:dateTime" />
+          <xs:element xmlns:q316="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain" minOccurs="0" name="Status" type="q316:EntryStatus" />
+          <xs:element minOccurs="0" name="Thumb" nillable="true" type="q315:EntryThumbContract" />
+          <xs:element minOccurs="0" name="Version" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q317="http://vocaloid.eu/schemas/VocaDb" name="SongListContract" nillable="true" type="q317:SongListContract" />
+  <xs:complexType name="EntryThumbContract">
+    <xs:sequence>
+      <xs:element xmlns:q318="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain" minOccurs="0" name="EntryType" type="q318:EntryType" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Mime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Version" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q319="http://vocaloid.eu/schemas/VocaDb" name="EntryThumbContract" nillable="true" type="q319:EntryThumbContract" />
+  <xs:element name="GetTagById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element xmlns:q320="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Globalization" minOccurs="0" name="language" nillable="true" type="q320:ContentLanguagePreference" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q321="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="GetTagByIdResult" nillable="true" type="q321:TagContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="TagContract">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q322="http://vocaloid.eu/schemas/VocaDb" base="q322:TagBaseContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HideFromSuggestions" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Parent" nillable="true" type="q322:TagBaseContract" />
+          <xs:element xmlns:q323="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain" minOccurs="0" name="Status" type="q323:EntryStatus" />
+          <xs:element xmlns:q324="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Tags" minOccurs="0" name="Targets" type="q324:TagTargetTypes" />
+          <xs:element minOccurs="0" name="Version" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q325="http://vocaloid.eu/schemas/VocaDb" name="TagContract" nillable="true" type="q325:TagContract" />
+  <xs:element name="GetTagByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTagByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q326="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="GetTagByNameResult" nillable="true" type="q326:TagContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q327="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="GetUserInfoResult" nillable="true" type="q327:UserContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlbumByLinkUrl">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="url" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlbumByLinkUrlResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q328="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="GetAlbumByLinkUrlResult" nillable="true" type="q328:AlbumContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRandomSongLyrics">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="query" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRandomSongLyricsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q329="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="GetRandomSongLyricsResult" nillable="true" type="q329:LyricsForSongContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSongWithPV">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q330="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.PVs" minOccurs="0" name="service" type="q330:PVService" />
+        <xs:element minOccurs="0" name="pvId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSongWithPVResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q331="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="GetSongWithPVResult" nillable="true" type="q331:SongWithAlbumContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="accessKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q332="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="GetUserResult" nillable="true" type="q332:UserContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

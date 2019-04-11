@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="https://localhost:44399/Services/QueryService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:simpleType name="ArtistType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Unknown" />
@@ -12,9 +12,15 @@
       <xs:enumeration value="Lyricist" />
       <xs:enumeration value="Vocaloid" />
       <xs:enumeration value="UTAU" />
+      <xs:enumeration value="CeVIO" />
+      <xs:enumeration value="OtherVoiceSynthesizer" />
       <xs:enumeration value="OtherVocalist" />
       <xs:enumeration value="OtherGroup" />
       <xs:enumeration value="OtherIndividual" />
+      <xs:enumeration value="Utaite" />
+      <xs:enumeration value="Band" />
+      <xs:enumeration value="Vocalist" />
+      <xs:enumeration value="Character" />
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="ArtistType" nillable="true" type="tns:ArtistType" />
@@ -68,6 +74,27 @@
             <xs:annotation>
               <xs:appinfo>
                 <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">32</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Band">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">64</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Illustrator">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">128</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Subject">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">256</EnumerationValue>
               </xs:appinfo>
             </xs:annotation>
           </xs:enumeration>
@@ -171,9 +198,47 @@
               </xs:appinfo>
             </xs:annotation>
           </xs:enumeration>
+          <xs:enumeration value="Mixer">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4096</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Chorus">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8192</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Encoder">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16384</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="VocalDataProvider">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">32768</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
         </xs:restriction>
       </xs:simpleType>
     </xs:list>
   </xs:simpleType>
   <xs:element name="ArtistRoles" nillable="true" type="tns:ArtistRoles" />
+  <xs:simpleType name="ArtistLinkType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CharacterDesigner" />
+      <xs:enumeration value="Group" />
+      <xs:enumeration value="Illustrator" />
+      <xs:enumeration value="Manager" />
+      <xs:enumeration value="VoiceProvider" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ArtistLinkType" nillable="true" type="tns:ArtistLinkType" />
 </xs:schema>
