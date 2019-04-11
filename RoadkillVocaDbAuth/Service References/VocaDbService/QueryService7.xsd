@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Songs" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts.Songs" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd0" namespace="http://vocaloid.eu/schemas/VocaDb" />
+  <xs:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" />
+  <xs:complexType name="ArrayOfSongWithAlbumAndPVsContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SongWithAlbumAndPVsContract" nillable="true" type="tns:SongWithAlbumAndPVsContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSongWithAlbumAndPVsContract" nillable="true" type="tns:ArrayOfSongWithAlbumAndPVsContract" />
+  <xs:complexType name="SongWithAlbumAndPVsContract">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://vocaloid.eu/schemas/VocaDb" base="q1:SongWithAlbumContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PVs" nillable="true" type="q1:ArrayOfPVContract" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SongWithAlbumAndPVsContract" nillable="true" type="tns:SongWithAlbumAndPVsContract" />
+  <xs:complexType name="ArrayOfArtistForSongContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArtistForSongContract" nillable="true" type="tns:ArtistForSongContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfArtistForSongContract" nillable="true" type="tns:ArrayOfArtistForSongContract" />
+  <xs:complexType name="ArtistForSongContract">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://vocaloid.eu/schemas/VocaDb" minOccurs="0" name="Artist" nillable="true" type="q2:ArtistWithAdditionalNamesContract" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" minOccurs="0" name="Categories" type="q3:ArtistCategories" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" minOccurs="0" name="EffectiveRoles" type="q4:ArtistRoles" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsSupport" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain.Artists" minOccurs="0" name="Roles" type="q5:ArtistRoles" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArtistForSongContract" nillable="true" type="tns:ArtistForSongContract" />
+</xs:schema>

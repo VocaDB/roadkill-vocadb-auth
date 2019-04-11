@@ -1,0 +1,12 @@
+################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/
+/Libs/Roadkill.Core.dll
+/Libs/Roadkill.Core.pdb
+/packages
+/RoadkillVocaDbAuth/bin
+/RoadkillVocaDbAuth/obj
+*.user
+*.suo

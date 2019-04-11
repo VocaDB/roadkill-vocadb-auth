@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.DataContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain" />
+  <xs:import schemaLocation="http://localhost:39390/Services/QueryService.svc?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/System.IO" />
+  <xs:complexType name="ArrayOfEntryPictureFileContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EntryPictureFileContract" nillable="true" type="tns:EntryPictureFileContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEntryPictureFileContract" nillable="true" type="tns:ArrayOfEntryPictureFileContract" />
+  <xs:complexType name="EntryPictureFileContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContentLength" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/VocaDb.Model.Domain" minOccurs="0" name="EntryType" type="q1:EntryType" />
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Mime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="UploadedFile" nillable="true" type="q2:Stream" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EntryPictureFileContract" nillable="true" type="tns:EntryPictureFileContract" />
+</xs:schema>
