@@ -1,41 +1,90 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.ServiceModel;
+using System.Net.Http;
+using System.Runtime.Serialization;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Security;
-using Roadkill.Core;
+using Newtonsoft.Json;
 using Roadkill.Core.Configuration;
 using Roadkill.Core.Database;
 using Roadkill.Core.Mvc.ViewModels;
 using Roadkill.Core.Security;
-using VocaDb.RoadkillAuth.VocaDbService;
 
 namespace VocaDb.RoadkillAuth
 {
+	public enum UserGroupId
+	{
+		Nothing,
+
+		Limited,
+
+		Regular,
+
+		Trusted,
+
+		Moderator,
+
+		Admin,
+	}
+
+	public class UserForApiContract
+	{
+		[DataMember]
+		public UserGroupId GroupId { get; set; }
+	}
+
+	public class PartialFindResult<T>
+	{
+		public PartialFindResult()
+		{
+			Items = new T[] { };
+		}
+
+		public PartialFindResult(T[] items, int totalCount)
+		{
+			Items = items;
+			TotalCount = totalCount;
+		}
+
+		public PartialFindResult(T[] items, int totalCount, string term)
+			: this(items, totalCount)
+		{
+			Term = term;
+		}
+
+		[DataMember]
+		public T[] Items { get; set; }
+
+		[DataMember]
+		public string Term { get; set; }
+
+		[DataMember]
+		public int TotalCount { get; set; }
+	}
+
 	public class VocaDbUserManager : UserServiceBase
 	{
-		private UserContract GetContractOrDefault(string username)
+		private UserForApiContract GetContractOrDefault(string username)
 		{
-			using (var client = new QueryServiceClient())
+			using (var client = new HttpClient())
 			{
-				try
-				{
-					return client.GetUserInfo(username);
-				}
-				catch (FaultException x)
-				{
-					throw new SecurityException(x, "Unable to get user {0}", username);
-				}
+				// Code from: https://docs.microsoft.com/en-us/archive/blogs/jpsanders/asp-net-do-not-use-task-result-in-main-context
+				var stringTask = Task.Run(() => client.GetStringAsync($"https://vocadb.net/api/users?query={username}&nameMatchMode=Exact&maxResults=1"));
+				stringTask.Wait();
+				var value = stringTask.Result;
+				var users = JsonConvert.DeserializeObject<PartialFindResult<UserForApiContract>>(value);
+				return users.Items.FirstOrDefault();
 			}
 		}
 
-		private static bool IsAdmin(UserContract contract)
+		private static bool IsAdmin(UserForApiContract contract)
 		{
 			return contract != null && contract.GroupId >= UserGroupId.Moderator;
 		}
 
-		private static bool IsEditor(UserContract contract)
+		private static bool IsEditor(UserForApiContract contract)
 		{
 			return contract != null && contract.GroupId >= UserGroupId.Trusted;
 		}
