@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
@@ -33,6 +34,9 @@ namespace VocaDb.RoadkillAuth
 	{
 		[DataMember]
 		public UserGroupId GroupId { get; set; }
+
+		[DataMember]
+		public string Name { get; set; }
 	}
 
 	public class PartialFindResult<T>
@@ -143,16 +147,20 @@ namespace VocaDb.RoadkillAuth
 
 		public override string GetLoggedInUserName(HttpContextBase context)
 		{
-			if (FormsAuthentication.IsEnabled)
+			var cookie = context.Request.Cookies[".AspNetCore.Cookies"];
+			if (cookie != null)
 			{
-				if (context.Request.Cookies[FormsAuthentication.FormsCookieName] != null)
+				var cookieContainer = new CookieContainer();
+				cookieContainer.Add(new Cookie(name: cookie.Name, value: cookie.Value, path: cookie.Path, domain: ".vocadb.net"/* TODO: do not hardcode */));
+				using (var handler = new HttpClientHandler { CookieContainer = cookieContainer })
+				using (var client = new HttpClient(handler))
 				{
-					string cookie = context.Request.Cookies[FormsAuthentication.FormsCookieName].Value;
-					if (!string.IsNullOrEmpty(cookie))
-					{
-						FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie);
-						return ticket.Name;
-					}
+					// Code from: https://docs.microsoft.com/en-us/archive/blogs/jpsanders/asp-net-do-not-use-task-result-in-main-context
+					var stringTask = Task.Run(() => client.GetStringAsync($"https://vocadb.net/api/users/current"));
+					stringTask.Wait();
+					var value = stringTask.Result;
+					var user = JsonConvert.DeserializeObject<UserForApiContract>(value);
+					return user.Name;
 				}
 			}
 
