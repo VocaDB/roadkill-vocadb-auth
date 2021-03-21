@@ -145,9 +145,11 @@ namespace VocaDb.RoadkillAuth
 			throw new NotSupportedException();
 		}
 
+		private const string CookieName = ".AspNetCore.Cookies";
+
 		public override string GetLoggedInUserName(HttpContextBase context)
 		{
-			var cookie = context.Request.Cookies[".AspNetCore.Cookies"];
+			var cookie = context.Request.Cookies[CookieName];
 			if (cookie != null)
 			{
 				var cookieContainer = new CookieContainer();
